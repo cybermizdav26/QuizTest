@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-u^uk%a%h5=g!kf^)p7sok1u^&ofq=y#+f3qxlune63)p)okyq=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['QuizTests.pythonanywhere.com']
+ALLOWED_HOSTS = ['quiztests.pythonanywhere.com']
 
 
 # Application definition
@@ -122,6 +122,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+STATIC_ROOT = 'static/'
 
 STATICFILES_DIRS = [BASE_DIR / 'static/']
 
