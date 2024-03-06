@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %} Result list {% endblock %}
+
+{% block content %}
+    <h1> Result List Page</h1>
+
+    <hr>
+    <form method="get">
+    {% csrf_token %}
+    {{ filter.form }}
+    <button type="submit" >Search</button>
+
+    </form>
+
+    <form method="post">
+    {% csrf_token %}
+    <table border="2">
+        <thead>
+        <tr>
+            <td> ID </td>
+            <td> User </td>
+            <td> Total question </td>
+            <td> correct </td>
+            <td> Score </td>
+            <td> Date </td>
+            <td> Category </td>
+        </tr>
+        </thead>
+        <tbody>
+        {% for result in filter.qs %}
+            {% if result.user == user %}
+            <tr>
+                <td> {{ result.id }}</td>
+                <td> {{ result.user.phone }}</td>
+                <td> {{ result.total_questions }}</td>
+                <td> {{ result.total_correct }}</td>
+                <td> {{ result.score }}</td>
+                <td> {{ result.created_at | date:'Y-m-d' }}</td>
+                <td> {{ result.category.name }}</td>
+            </tr>
+            {% endif %}
+        {% endfor %}
+        </tbody>
+
+
+    </table>
+    </form>
+
+{% endblock %}
