@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-u^uk%a%h5=g!kf^)p7sok1u^&ofq=y#+f3qxlune63)p)okyq='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['quiztests.pythonanywhere.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -125,9 +125,8 @@ STATIC_URL = 'static/'
 
 STATIC_ROOT = 'static/'
 
-STATICFILES_DIRS = [BASE_DIR / 'static']
-
 # MEDIA_URL = 'media/'
+#
 # MEDIA_ROOT = BASE_DIR / 'media/'
 
 # Default primary key field type
