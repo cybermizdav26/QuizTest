@@ -6,3 +6,7 @@
     font-family: sans-serif;
     scroll-behavior: smooth;
 }
+body
+{
+    background: #222;
+}
