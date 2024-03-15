@@ -3,14 +3,18 @@
 {% block title %}User Profile{% endblock %}
 
 {% block content %}
-    <div class="profile">
+    <div class="profile centered">
         <h1>My Profile</h1>
         <p>Name: {{ user.get_full_name }}</p>
         <p>Phone: {{ user.phone }}</p>
-        <p>Photo: <img src="{{ user.photo }}" alt="{{ user.get_full_name }}"> </p>
+        {% if user.photo %}
+            <p>Photo: <img src="{{ user.photo.url }}" alt="{{ user.get_full_name }}"> </p>
+        {% endif %}
         <p>Email: {{ user.email }}</p>
         <a href="{% url 'app:result_list' %}">Result list</a> |
-        <a href="{% url 'account:profile_update' %}">Edit Profile</a>
+        <a href="{% url 'account:profile_update' %}">
+            <i class="fa-solid fa-pen"></i>
+        </a>
     </div>
 {% endblock %}
 
