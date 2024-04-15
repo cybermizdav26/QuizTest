@@ -4,12 +4,14 @@
 
 {% block content %}
     <div class="profile centered">
+        {% if user.image %}
+            <img src="{{ user.image.url }}" class="profile-img">
+        {% else %}
+            <p>No photo uploaded.</p>
+        {% endif %}
         <h1>My Profile</h1>
         <p>Name: {{ user.get_full_name }}</p>
         <p>Phone: {{ user.phone }}</p>
-        {% if user.photo %}
-            <p>Photo: <img src="{{ user.photo.url }}" alt="{{ user.get_full_name }}"> </p>
-        {% endif %}
         <p>Email: {{ user.email }}</p>
         <a href="{% url 'app:result_list' %}">Result list</a> |
         <a href="{% url 'account:profile_update' %}">
@@ -17,5 +19,3 @@
         </a>
     </div>
 {% endblock %}
-
-

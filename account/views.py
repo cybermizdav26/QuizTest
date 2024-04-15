@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse, reverse_lazy
 from django.views.generic import CreateView, UpdateView, DetailView
 
-from account.forms import SignUpForm, LoginForm, UserProfileForm
+from account.forms import SignUpForm, LoginForm, UserUpdateProfileForm
 
 User = get_user_model()
 
@@ -48,7 +48,7 @@ class UserProfileView(LoginRequiredMixin, DetailView):
 
 class UserProfileUpdateView(LoginRequiredMixin, UpdateView):
     model = User
-    form_class = UserProfileForm
+    form_class = UserUpdateProfileForm
     template_name = 'profile_update.html'
     success_url = reverse_lazy('account:profile')
 

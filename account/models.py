@@ -9,7 +9,7 @@ from account.managers import UserManager
 class User(AbstractUser):
     username = None
     phone = models.CharField(max_length=13, unique=True)
-    photo = models.ImageField(upload_to='photos/', blank=True, null=True)
+    image = models.ImageField(upload_to='users_photos/', null=False, blank=True)
 
     USERNAME_FIELD = 'phone'
     objects = UserManager()

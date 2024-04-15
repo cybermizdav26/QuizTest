@@ -70,11 +70,18 @@ header a:active::before
     transform: translate(-50%, -50%);
 }
 
-.profile
-{
+.profile {
     border: 1px solid #000;
-    width: max-content;
+    width: 80%;
+    /*top: 0;*/
+    margin: auto;
     padding: 25px;
+}
+.profile-img
+{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
 }
 
 
@@ -236,3 +243,4 @@ ul {
         transform: rotate(360deg);
     }
 }
+
