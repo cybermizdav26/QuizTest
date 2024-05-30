@@ -41,9 +41,11 @@ INSTALLED_APPS = [
     'import_export',
     'rest_framework',
     'drf_yasg',
+    'channels',
     #local apps
     'app.apps.AppConfig',
-    'account.apps.AccountConfig'
+    'account.apps.AccountConfig',
+    'chat.apps.ChatConfig'
 ]
 
 MIDDLEWARE = [
@@ -76,6 +78,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'Quiz.wsgi.application'
+ASGI_APPLICATION = 'Quiz.asgi.application'
 
 
 # Database
@@ -87,6 +90,7 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
 
 # DATABASES = {
 #     'default': {
@@ -135,8 +139,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
-
-STATIC_ROOT = 'static/'
+STATICFILES_DIRS = [BASE_DIR / 'static/']
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media/'
@@ -147,3 +150,12 @@ MEDIA_ROOT = BASE_DIR / 'media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'account.User'
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
+    },
+}

@@ -30,14 +30,14 @@ schema_view = get_schema_view(
       description="Test description",
    ),
    public=True,
-   permission_classes=(permissions.AllowAny,),
+   permission_classes=(permissions.AllowAny),
 )
 
 urlpatterns = [
     path('admin-quiz-secret/', admin.site.urls),
     path('account', include('account.urls')),
     path('', include('app.urls')),
-
+    path('chat/', include('chat.urls')),
     #
     path('api/version1/user/', include('account.api.version1.urls')),
     path('api/version1/app/', include('app.api.version1.urls')),
