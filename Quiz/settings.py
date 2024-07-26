@@ -42,11 +42,14 @@ INSTALLED_APPS = [
     'rest_framework',
     'drf_yasg',
     'channels',
-    #local apps
+]
+
+LOCAL_APPS = [
     'app.apps.AppConfig',
     'account.apps.AccountConfig',
-    'chat.apps.ChatConfig'
 ]
+
+INSTALLED_APPS += LOCAL_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -90,18 +93,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': os.getenv('NAME'),
-#         'USER': os.getenv('USER'),
-#         'PASSWORD': os.getenv('PASSWORD'),
-#         'HOST': os.getenv('HOST'),
-#         'PORT': os.getenv('PORT'),
-#     }
-# }
 
 
 # Password validation

@@ -34,16 +34,17 @@ schema_view = get_schema_view(
 )
 
 urlpatterns = [
-    path('admin-quiz-secret/', admin.site.urls),
+    path('admin/', admin.site.urls),
     path('account', include('account.urls')),
     path('', include('app.urls')),
-    path('chat/', include('chat.urls')),
-    #
-    path('api/version1/user/', include('account.api.version1.urls')),
-    path('api/version1/app/', include('app.api.version1.urls')),
     path('docs/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc')
 ]
 
+api_urls = [
+    path('api/version1/user/', include('account.api.version1.urls')),
+    path('api/version1/app/', include('app.api.version1.urls')),
+]
 
+urlpatterns += api_urls
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
